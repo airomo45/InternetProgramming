@@ -1,0 +1,82 @@
+body {
+    /* background: #111; */
+    /* padding: 10px */
+    background: #ceffff
+}
+table, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    /* background: white */
+}
+.youtubeWidget{
+    width: 560.7px;
+    height: 315px
+
+}
+
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .navigationList {
+    float: left;
+  }
+  
+  .navigationList a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  .navigationList a:hover {
+    background-color: #111;
+  }
+  .container{
+      /* background: green; */
+      width: 100%;
+  }
+  .leftColumn{
+      /* background: red; */
+      width: 45%;
+      float: left;
+      padding: 10px
+
+  }
+  .rightColumn{
+    /* background: blue; */
+    width: 45%;
+    float: left;
+    padding: 10px;
+
+}
+.thumbnail{
+    width: 5em;
+    display: none;
+}
+
+table, td:hover .thumbnail {
+    display: inline-block;
+    text-align: center;
+}
+.formContainer{
+    width: 400px;
+    background: white;
+    height: 500px;
+    padding: 15px;
+}
+/* .eventName:invalid {
+    background-color: pink;
+    color: red
+  } */
+/* .eventName p.ws-errormessage::after {
+    content:"Error";
+} */
