@@ -16,7 +16,7 @@ table, td {
 }
 
 
-nav {
+.nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -80,3 +80,82 @@ table, td:hover .thumbnail {
 /* .eventName p.ws-errormessage::after {
     content:"Error";
 } */
+.buttonContainer{
+    /* text-align: 'right' */
+    /* margin-left: 70% */
+    padding: 10px
+}
+.submitButton{
+    width: 90%;
+    padding: 10px;
+    background: rgb(0, 0, 128);
+    color: white;
+    /* display: none; */
+}
+/* .submitButton:disabled{
+    background: rgba(0, 0, 128, 0.525);
+
+} */
+/* ================================== */
+/* My widget styles */
+/* ================================== */
+.outerContainerMyWidget{
+   width: 100%; 
+}
+.myWidgetColumns{
+    width: 25%; 
+    float: left; 
+    padding: 10px;
+}
+.passwordCheckerContainer{
+    background: ghostwhite;
+    padding: 20px;
+    height: 200px
+}
+.strengthText{
+    padding: 10px; display: none
+}
+.strengthBarContainer{
+    width: 90%;
+    height: 20px; 
+    background: #00000067; 
+    margin-top: 10px
+}
+.strengthBar{
+    width: 0px;
+    height: 20px; 
+    background: green
+}
+
+/* ================================== */
+/* My Places */
+/* ================================== */
+.altRow{
+    background: #d1eaff;
+}
+.bigImageDefault{
+    width: 100%
+}
+.bigImage{
+    width: 100%;
+    display: none;
+}
+.weekend{
+    align-items: center;
+    text-align: center;
+}
+/* ================================== */
+/* Form Input */
+/* ================================== */
+.errorMessage{
+    margin-top: 5px;
+    display: none; 
+    font-size: 10px; 
+    color: red
+}
+/* ================================== */
+/*My Favorite */
+/* ================================== */
+.myFavoriteContainer{
+    background: #b9f5ca
+}

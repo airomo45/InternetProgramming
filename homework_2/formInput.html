@@ -5,20 +5,23 @@
     <title>My Widgets</title>
     <link rel="stylesheet" href="./styles.css"> 
 
+
 </head>
 
 <body>
-        <nav>
+        <ul class="nav">
                 <li class="navigationList"><a href="myPlaces.html">My Place</a></li>
                 <li class="navigationList"> <a href="./myWidgets.html">My Widgets</a></li>
                 <li class="navigationList"><a href="./myFavorite.html">My Favorite Places</a></li>
                 <li class="navigationList"><a href="./formInput.html">Form Input</a></li>
-        </nav> 
+        </ul> 
 
 
     <h1>Form Page</h1>
     <div class="formContainer">
         <div class="container">
+            <form action="./formSuccess.html" id="myForm">
+
                 <!-- Day of the week -->
                 <div class="leftColumn">Day of the week</div>
                 <div class="rightColumn">
@@ -37,36 +40,49 @@
                 <div class="leftColumn">Start Time</div>
                 <div class="rightColumn">
                       <!-- <input type="week" > -->
-                      <input type="time" id="startTime" name="startTime"
+                      <input type="time" id="startTime" name="startTime "  title="Enter a valid time" 
+
                      required>
+                     <span class="errorMessage" id="eventErrorTimeStart">Please enter time correctly</span>
+
                 </div>
                 <!-- End Time -->
                 <div class="leftColumn">End Time</div>
                 <div class="rightColumn">
                       <!-- <input type="week" > -->
-                      <input type="time" id="endTime" name="endTime"
+                      <input type="time" id="endTime" name="endTime" title="Enter a valid time"
+
                      required>
+                     <span class="errorMessage" id="eventErrorTimeEnd">Please enter time correctly</span>
+
                 </div>
 
                   <!-- Event Name -->
                   <div class="leftColumn">Event Name</div>
                   <div class="rightColumn">
-                        <input id="eventName" type="text" name="name" class="eventName" required pattern="[a-zA-Z0-9\s]+" title="Six or more characters" />
-                        <span style="margin-top: 5px; display: none; font-size: 10px; color: red" id="eventError">Error can't contain special symbols</span>
+                        <input id="eventName" type="text" name="name" class="eventName" required pattern="[a-zA-Z0-9\s]+" title="Error can't contain special symbols" />
+                        <span class="errorMessage" id="eventError">Error can't contain special symbols</span>
                   </div>
                   <!-- Location -->
                   <div class="leftColumn">Location</div>
                   <div class="rightColumn">
-                        <input id="locationName" type="text" name="name" class="locationName" required pattern="[a-zA-Z0-9\s]+" title="Six or more characters" />
-                        <span style="margin-top: 5px; display: none; font-size: 10px; color: red" id="eventError2">Error can't contain special symbols</span>
+                        <input id="locationName" type="text" name="name" class="locationName" required pattern="[a-zA-Z0-9\s]+"  title="Error can't contain special symbols"  />
+                        <span class="errorMessage" id="eventError2">Error can't contain special symbols</span>
                   </div>
 
                 <!-- URL -->
                 <div class="leftColumn">Enter Url for the picture</div>
                 <div class="rightColumn">
-                        <input id="urlName" type="text" name="name" class="urlName" required pattern="https?://.+" title="Six or more characters" />
-                        <span style="margin-top: 5px; display: none; font-size: 10px; color: red" id="eventError3">Error enter a valid URL</span>
+                        <input id="urlName" type="text" name="name" class="urlName" required pattern="https?://.+" title="Must be a valid url" />
+                        <span class="errorMessage" id="eventError3">Error enter a valid URL</span>
                 </div>
+                <div class="buttonContainer">
+                    <!-- <Button id="submitButton" onclick="window.location.href='./formSuccess.html'" class="submitButton">Submit</Button> -->
+                    <input  type="submit" value="Submit">
+
+
+                </div>
+            </form>
 
 
 
@@ -76,46 +92,85 @@
     </div>
 
 </body>
+<!-- Validator says that this is a stray script but it is not: -->
 <script>
-const eventName = document.getElementById('eventName');
-const eventError = document.getElementById('eventError');
-  
-eventName.addEventListener('keyup', function (event) {
-  isValidEvent = eventName.checkValidity();
-  
-  if ( isValidEvent ) {
-    eventError.style.display = 'none'
-  } else {
-    eventError.style.display = 'block'
-  }
-});
+        const locationNameVal = document.getElementById('locationName');
+        const urlNameVal = document.getElementById('urlName');
+        const eventNameVal = document.getElementById('eventName');
 
-const locationName = document.getElementById('locationName');
-const eventError2 = document.getElementById('eventError2');
-  
-locationName.addEventListener('keyup', function (event) {
-  isValidEvent2 = locationName.checkValidity();
-  
-  if ( isValidEvent2 ) {
-    eventError2.style.display = 'none'
-  } else {
-    eventError2.style.display = 'block'
-  }
-});
+        const submitButton = document.getElementById('submitButton');
+        console.log(document.getElementById('myForm').checkValidity)
 
-const urlName = document.getElementById('urlName');
-const eventError3 = document.getElementById('eventError3');
-  
-urlName.addEventListener('keyup', function (event) {
-  isValidEvent3 = urlName.checkValidity();
-  
-  if ( isValidEvent3 ) {
-    eventError3.style.display = 'none'
-  } else {
-    eventError3.style.display = 'block'
-  }
-});
+        const eventName = document.getElementById('eventName');
+        const eventError = document.getElementById('eventError');
+
+        eventName.addEventListener('keyup', function (event) {
+        isValidEvent = eventName.checkValidity();
+        
+        if ( isValidEvent ) {
+            eventError.style.display = 'none'
+            // submitButton.style.display = 'block'
+            // submitButton.style.background = 'navy'
+        } else {
+            eventError.style.display = 'block'
+            // submitButton.style.display = 'none'
+
+        }
+        });
+
+        const locationName = document.getElementById('locationName');
+        const eventError2 = document.getElementById('eventError2');
+        
+        locationName.addEventListener('keyup', function (event) {
+        isValidEvent2 = locationName.checkValidity();
+        
+        if ( isValidEvent2 ) {
+            eventError2.style.display = 'none'
+        } else {
+            eventError2.style.display = 'block'
+        }
+        });
+
+        const urlName = document.getElementById('urlName');
+        const eventError3 = document.getElementById('eventError3');
+        
+        urlName.addEventListener('keyup', function (event) {
+        isValidEvent3 = urlName.checkValidity();
+        
+        if ( isValidEvent3 ) {
+            eventError3.style.display = 'none'
+        } else {
+            eventError3.style.display = 'block'
+        }
+        });
+        // TIme Start
+        const startTime = document.getElementById('startTime');
+        const eventErrorTimeStart = document.getElementById('eventErrorTimeStart');
+        
+        startTime.addEventListener('keyup', function (event) {
+        isValidTimeStart = startTime.checkValidity();
+        
+        if ( isValidEventTimeStart ) {
+            eventErrorTimeStart.style.display = 'none'
+        } else {
+            eventErrorTimeStart.style.display = 'block'
+        }
+        });
+        // Time end
+        const endTime = document.getElementById('endTime');
+        const eventErrorTimeEnd = document.getElementById('eventErrorTImeEnd');
+        
+        endTime.addEventListener('keyup', function (event) {
+        isValidEventTimeEnd = endTime.checkValidity();
+        
+        if ( isValidEventTimeEnd ) {
+            eventErrorTimeEnd.style.display = 'none'
+        } else {
+            eventErrorTimeEnd.style.display = 'block'
+        }
+        });
 </script>
+
 </html>
 
 
